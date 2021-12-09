@@ -122,7 +122,9 @@ public class Ship : MonoBehaviour
         if (collision.gameObject.CompareTag("Munition"))
         {
             DealDamage(damagePoints);
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
+
 
         }
     }

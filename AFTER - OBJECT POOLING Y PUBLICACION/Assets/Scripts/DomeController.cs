@@ -11,9 +11,16 @@ public class DomeController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Munition") || other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Munition"))
+        {
+            other.gameObject.SetActive(false);
+            other.gameObject.GetComponent<Rigidbody>().velocity        = Vector3.zero;
+            other.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         }
 
         if (other.gameObject.CompareTag("Player"))
